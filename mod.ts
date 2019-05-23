@@ -31,7 +31,7 @@ export function slugify(
 
 export namespace slugify {
   export interface Options {
-    remove?: string;
+    remove?: RegExp;
     replacement?: string;
     lower?: boolean;
   }

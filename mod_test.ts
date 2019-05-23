@@ -42,7 +42,7 @@ test({
 test({
   name: "options.replacement",
   fn(): void {
-    assertEquals(slugify("foo bar baz", { replacement: "_" }), "foo_bar_baz");
+    assertEquals(slugify("foo bar baz", null, { replacement: "_" }), "foo_bar_baz");
   }
 });
 
@@ -50,7 +50,7 @@ test({
   name: "options.remove",
   fn(): void {
     assertEquals(
-      slugify("foo *+~.() bar '\"!:@ baz", { remove: /[$*_+~.()'"!\-:@]/g }),
+      slugify("foo *+~.() bar '\"!:@ baz", null, { remove: /[$*_+~.()'"!\-:@]/g }),
       "foo-bar-baz"
     );
   }
@@ -59,7 +59,7 @@ test({
 test({
   name: "options.lower",
   fn(): void {
-    assertEquals(slugify("Foo bAr baZ", { lower: true }), "foo-bar-baz");
+    assertEquals(slugify("Foo bAr baZ", null, { lower: true }), "foo-bar-baz");
   }
 });
 
