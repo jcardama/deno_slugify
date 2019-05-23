@@ -26,6 +26,9 @@
         "@typescript-eslint/no-parameter-properties": [
             "off"
         ],
+        "@typescript-eslint/no-namespace": [
+            "off"
+        ],
         "@typescript-eslint/no-unused-vars": [
             "error",
             {
