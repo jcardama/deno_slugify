@@ -1,9 +1,9 @@
 # Deno Slugify [![Build Status](https://travis-ci.org/jcardama/deno_slugify.svg?branch=master)](https://travis-ci.org/jcardama/deno_slugify)
 
-A string validator and formater for case Style
+A string slugifier
 
 ```js
-import { validate } from "./mod.ts";
+import { slugify } from "./mod.ts";
 
 slugify('some string') // some-string
 
