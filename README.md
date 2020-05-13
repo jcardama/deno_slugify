@@ -1,4 +1,4 @@
-# Deno Slugify [![Build Status](https://travis-ci.org/jcardama/deno_slugify.svg?branch=master)](https://travis-ci.org/jcardama/deno_slugify)
+# Deno Slugify [![Build Status](https://github.com/jcardama/deno_slugify/workflows/CI/badge.svg?branch=master&event=push)](ttps://github.com/jcardama/deno_slugify/actions) [![Build Status](https://travis-ci.org/jcardama/deno_slugify.svg?branch=master)](https://travis-ci.org/jcardama/deno_slugify)
 
 A string slugifier
 
