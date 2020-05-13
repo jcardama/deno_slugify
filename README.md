@@ -3,7 +3,7 @@
 A string slugifier
 
 ```js
-import { slugify } from "./mod.ts";
+import { slugify } from "https://deno.land/x/slugify/mod.ts";
 
 slugify('some string') // some-string
 
