@@ -6,14 +6,14 @@ Deno.test({
   fn(): void {
     assertEquals(slugify("foo bar baz"), "foo-bar-baz");
     assertEquals(slugify("foo bar baz", "_"), "foo_bar_baz");
-  }
+  },
 });
 
 Deno.test({
   name: "remove trailing space if any",
   fn(): void {
     assertEquals(slugify(" foo bar baz "), "foo-bar-baz");
-  }
+  },
 });
 
 Deno.test({
@@ -22,27 +22,27 @@ Deno.test({
     assertEquals(slugify("foo, bar baz"), "foo-bar-baz");
     assertEquals(slugify("foo- bar baz"), "foo-bar-baz");
     assertEquals(slugify("foo] bar baz"), "foo-bar-baz");
-  }
+  },
 });
 
 Deno.test({
   name: "leave allowed chars",
   fn(): void {
     var allowed = ["*", "+", "~", ".", "(", ")", "'", '"', "!", ":", "@"];
-    allowed.forEach(function(symbol): void {
+    allowed.forEach(function (symbol): void {
       assertEquals(
         slugify("foo " + symbol + " bar baz"),
         "foo-" + symbol + "-bar-baz"
       );
     });
-  }
+  },
 });
 
 Deno.test({
   name: "options.replacement",
   fn(): void {
     assertEquals(slugify("foo bar baz", { replacement: "_" }), "foo_bar_baz");
-  }
+  },
 });
 
 Deno.test({
@@ -52,14 +52,14 @@ Deno.test({
       slugify("foo *+~.() bar '\"!:@ baz", { remove: /[$*_+~.()'"!\-:@]/g }),
       "foo-bar-baz"
     );
-  }
+  },
 });
 
 Deno.test({
   name: "options.lower",
   fn(): void {
     assertEquals(slugify("Foo bAr baZ", { lower: true }), "foo-bar-baz");
-  }
+  },
 });
 
 Deno.test({
@@ -132,7 +132,7 @@ Deno.test({
       ý: "y",
       þ: "th",
       ÿ: "y",
-      ẞ: "SS"
+      ẞ: "SS",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -140,7 +140,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -215,7 +215,7 @@ Deno.test({
       Ή: "H",
       Ώ: "W",
       Ϊ: "I",
-      Ϋ: "Y"
+      Ϋ: "Y",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -223,7 +223,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -241,7 +241,7 @@ Deno.test({
       ö: "o",
       Ö: "O",
       ğ: "g",
-      Ğ: "G"
+      Ğ: "G",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -249,7 +249,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -329,7 +329,7 @@ Deno.test({
       є: "ye",
       і: "i",
       ї: "yi",
-      ґ: "g"
+      ґ: "g",
     };
     for (var ch in charMap) {
       var expected = "foo-" + slugify.charMap[ch] + "-bar-baz";
@@ -338,7 +338,7 @@ Deno.test({
       }
       assertEquals(slugify("foo " + ch + " bar baz"), expected);
     }
-  }
+  },
 });
 
 Deno.test({
@@ -362,7 +362,7 @@ Deno.test({
       Š: "S",
       Ť: "T",
       Ů: "U",
-      Ž: "Z"
+      Ž: "Z",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -370,7 +370,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -393,7 +393,7 @@ Deno.test({
       Ń: "N",
       Ś: "S",
       Ź: "Z",
-      Ż: "Z"
+      Ż: "Z",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -401,7 +401,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -429,7 +429,7 @@ Deno.test({
       Ņ: "N",
       Š: "S",
       Ū: "u",
-      Ž: "Z"
+      Ž: "Z",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -437,7 +437,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -461,7 +461,7 @@ Deno.test({
       Љ: "LJ",
       Њ: "NJ",
       Ћ: "C",
-      Џ: "DZ"
+      Џ: "DZ",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -469,7 +469,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -507,7 +507,7 @@ Deno.test({
       "฿": "baht",
       $: "dollar",
       "₽": "russian ruble",
-      "₿": "bitcoin"
+      "₿": "bitcoin",
     };
     for (var ch in charMap) {
       slugify.charMap[ch] = slugify.charMap[ch].replace(" ", "-");
@@ -516,7 +516,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -548,7 +548,7 @@ Deno.test({
       "&": "and",
       "|": "or",
       "<": "less",
-      ">": "greater"
+      ">": "greater",
     };
     for (var ch in charMap) {
       assertEquals(
@@ -556,7 +556,7 @@ Deno.test({
         "foo-" + slugify.charMap[ch] + "-bar-baz"
       );
     }
-  }
+  },
 });
 
 Deno.test({
@@ -564,7 +564,7 @@ Deno.test({
   fn(): void {
     slugify.extend({ "☢": "radioactive" });
     assertEquals(slugify("unicode ♥ is ☢"), "unicode-love-is-radioactive");
-  }
+  },
 });
 
 Deno.test({
@@ -579,7 +579,7 @@ Deno.test({
       slugify(alphabet),
       "A-a-B-b-V-v-G-g-D-d-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-M-m-N-n-O-o-P-p-R-r-S-s-T-t-U-u-F-f-H-h-C-c-Ch-ch-Sh-sh-Sh-sh-U-u-Yu-yu-Ya-ya"
     );
-  }
+  },
 });
 
 Deno.test({
@@ -593,7 +593,7 @@ Deno.test({
       cyrillic:
         "А а, Б б, В в, Г г, Д д, Ђ ђ, Е е, Ж ж, З з, И и, " +
         "Ј ј, К к, Л л, Љ љ, М м, Н н, Њ њ, О о, П п, Р р, " +
-        "С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш"
+        "С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш",
     };
     assertEquals(
       slugify(alphabets.latin),
@@ -603,7 +603,7 @@ Deno.test({
       slugify(alphabets.cyrillic),
       "A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-LJ-lj-M-m-N-n-NJ-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-Ch-ch-DZ-dz-Sh-sh"
     );
-  }
+  },
 });
 
 Deno.test({
@@ -618,7 +618,7 @@ Deno.test({
       slugify(alphabet),
       "A-a-B-b-C-c-C-c-D-d-E-e-F-f-G-g-G-g-H-h-I-i-I-i-J-j-K-k-L-l-M-m-N-n-O-o-O-o-P-p-R-r-S-s-S-s-T-t-U-u-U-u-V-v-Y-y-Z-z"
     );
-  }
+  },
 });
 
 Deno.test({
@@ -633,5 +633,5 @@ Deno.test({
       slugify(alphabet),
       "a-b-g-d-e-v-z-t-i-k-l-m-n-o-p-zh-r-s-t-u-f-k-gh-q-sh-ch-ts-dz-ts-ch-kh-j-h"
     );
-  }
+  },
 });
