@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "./test_deps.ts";
 import { slugify } from "./mod.ts";
 
 Deno.test({
