@@ -5,5 +5,4 @@ before_script:
   - curl -L https://deno.land/x/install/install.sh | sh -s $DENO_VERSION
   - export PATH="$HOME/.deno/bin:$PATH"
 script:
-  - deno fmt --check **/*.ts
-  - deno -A test.ts
+  - deno test test.ts
