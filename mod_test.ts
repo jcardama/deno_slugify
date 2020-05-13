@@ -1,8 +1,7 @@
-import { test, runIfMain } from "https://deno.land/std/testing/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { slugify } from "./mod.ts";
 
-test({
+Deno.test({
   name: "replace whitespaces with replacement",
   fn(): void {
     assertEquals(slugify("foo bar baz"), "foo-bar-baz");
@@ -10,14 +9,14 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "remove trailing space if any",
   fn(): void {
     assertEquals(slugify(" foo bar baz "), "foo-bar-baz");
   }
 });
 
-test({
+Deno.test({
   name: "remove not allowed chars",
   fn(): void {
     assertEquals(slugify("foo, bar baz"), "foo-bar-baz");
@@ -26,7 +25,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "leave allowed chars",
   fn(): void {
     var allowed = ["*", "+", "~", ".", "(", ")", "'", '"', "!", ":", "@"];
@@ -39,14 +38,14 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "options.replacement",
   fn(): void {
     assertEquals(slugify("foo bar baz", { replacement: "_" }), "foo_bar_baz");
   }
 });
 
-test({
+Deno.test({
   name: "options.remove",
   fn(): void {
     assertEquals(
@@ -56,14 +55,14 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "options.lower",
   fn(): void {
     assertEquals(slugify("Foo bAr baZ", { lower: true }), "foo-bar-baz");
   }
 });
 
-test({
+Deno.test({
   name: "replace latin chars",
   fn(): void {
     var charMap = {
@@ -144,7 +143,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace greek chars",
   fn(): void {
     var charMap = {
@@ -227,7 +226,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace turkish chars",
   fn(): void {
     var charMap = {
@@ -253,7 +252,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace cyrillic chars",
   fn(): void {
     var charMap = {
@@ -342,7 +341,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace czech chars",
   fn(): void {
     var charMap = {
@@ -374,7 +373,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace polish chars",
   fn(): void {
     var charMap = {
@@ -405,7 +404,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace latvian chars",
   fn(): void {
     var charMap = {
@@ -441,7 +440,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace serbian chars",
   fn(): void {
     var charMap = {
@@ -473,7 +472,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace currencies",
   fn(): void {
     var charMap = {
@@ -520,7 +519,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace symbols",
   fn(): void {
     var charMap = {
@@ -560,7 +559,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "replace custom characters",
   fn(): void {
     slugify.extend({ "☢": "radioactive" });
@@ -568,7 +567,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "bulgarian",
   fn(): void {
     var alphabet =
@@ -583,7 +582,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "serbian",
   fn(): void {
     var alphabets = {
@@ -607,7 +606,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "turkish",
   fn(): void {
     var alphabet =
@@ -622,7 +621,7 @@ test({
   }
 });
 
-test({
+Deno.test({
   name: "georgian",
   fn(): void {
     var alphabet =
@@ -636,5 +635,3 @@ test({
     );
   }
 });
-
-runIfMain(import.meta);
