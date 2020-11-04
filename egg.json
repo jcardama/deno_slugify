@@ -1,0 +1,10 @@
+{
+    "name": "slugify",
+    "description": "A string slugifier",
+    "homepage": "https://github.com/jcardama/deno_slugify",
+    "files": [
+    "./**/*.ts",
+    "README.md"
+    ],
+    "entry": "./mod.ts"
+}
